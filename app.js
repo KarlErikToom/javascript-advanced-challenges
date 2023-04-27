@@ -1,8 +1,15 @@
-document.getElementById("btn").onclick = function () {
-  fun();
-};
-
-function fun() {
-  document.getElementById("list").style.backgroundColor = "yellow";
+function showRating(rating) {
+  let ratings = "";
+  for (let i = 0; i < Math.floor(rating); i++) {
+    ratings = ratings + "*";
+    if (ratings !== Math.floor(rating) - 1) {
+      ratings = ratings + " ";
+    }
+  }
+  if (!Number.isInteger(rating)) {
+    ratings = ratings + ".";
+  }
+  return ratings;
 }
 
+console.log(showRating(.5));
