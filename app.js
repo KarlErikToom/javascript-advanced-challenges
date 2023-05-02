@@ -1,11 +1,15 @@
-async function firstSixIncomplete() {
-  const promise = await fetch("https://jsonplaceholder.typicode.com/todos");
-
-  const result = await promise.json();
-
-  const toDos = result.filter(elem => !elem.completed).slice(0 ,6);
-
-  console.log(toDos);
+function showRating(rating){
+let ratings = ""
+for (let i = 0; i < Math.floor(rating); i++){
+  ratings = ratings + "*"
+  if ( i !==Math.floor(rating) - 1){
+    ratings = ratings + " "
+  }
+}
+if(!Number.isInteger(rating)){
+  ratings = ratings + " ."
+}
+return ratings
 }
 
-firstSixIncomplete ();
+console.log(showRating(4.5))
