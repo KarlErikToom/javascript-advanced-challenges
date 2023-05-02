@@ -1,13 +1,9 @@
-function sortHighToLow(arr) {
-  return arr.sort((a, b )=> b.price - a.price);
+async function postsByUser(userId){
+ const promise = await fetch ("https://jsonplaceholder.typicode.com/posts")
+const result = await promise.json()
+
+const posts = result.filter(elem => elem.userId === userId)
+console.log(posts)
 }
 
-console.log(
-  sortHighToLow([
-    { id: 1, price: 50 },
-    { id: 2, price: 30 },
-    { id: 3, price: 60 },
-    { id: 4, price: 10 },
-    { id: 5, price: 310 },
-  ])
-);
+postsByUser(4)
